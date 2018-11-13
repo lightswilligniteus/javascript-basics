@@ -19,6 +19,24 @@
     function multiply(num1, num2) {
       console.log(num1 * num2);
     }
+
+    // Write a function called capitalize that takes a string and
+    //returns that string with only the first letter capitalized.
+    //Make sure that it can take strings that are lowercase,
+    //UPPERCASE or BoTh.
+    function capitalize(text) {
+      let firstStr = (text.slice(0,1)).toUpperCase();
+      let lastStr = text.slice(1);
+      console.log(firstStr + lastStr);
+    }
+
+    //Write a function called lastLetter that takes a string and
+    //returns the very last letter of that string:
+      //lastLetter("abcd") should return "d"
+    function lastLetter(text) {
+      let lastLetter = text.slice(-1);
+      console.log(lastLetter)
+    }
     </script>
   </body>
 
