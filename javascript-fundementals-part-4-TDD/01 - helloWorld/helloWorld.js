@@ -1,4 +1,4 @@
 const helloWorld = function() {
-  return 'Hello, World!'}
+  return 'Hello, World!s'}
 
 module.exports = helloWorld
