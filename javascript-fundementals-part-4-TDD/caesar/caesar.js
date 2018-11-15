@@ -14,14 +14,26 @@ function getCharCode(character, num) {
   let charCode = character.charCodeAt(0)
   let newCharCode = charCode + num;
 
+  if (num > 26 || num < -26) {
+    num = num % 26;
+  }
+
   if(specialCharacter.test(character) || character == " ") {
     charCode = charCode;
   } else if ((newCharCode > 97 && newCharCode < 122) || (newCharCode > 65 && newCharCode < 90)) {
     charCode = charCode + num;
   } else {
-    charCode = charCode + num - 26;
+    if (num > 0) {
+      charCode = charCode + num - 26;
+    } else {
+      charCode = charCode + num + 26;
+    }
   }
   return charCode;
+}
+
+function checkSpecial(character) {
+
 }
 
 module.exports = caesar

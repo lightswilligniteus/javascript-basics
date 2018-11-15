@@ -1,0 +1,21 @@
+Randomized with seed 22565
+Started
+*.F....
+
+Failures:
+1) caesar works with large shift factors
+  Message:
+    Expected 'y ,  £!' to equal 'Ebiil, Tloia!'.
+  Stack:
+    Error: Expected 'y ,  £!' to equal 'Ebiil, Tloia!'.
+        at <Jasmine>
+        at UserContext.<anonymous> (/home/karishma/Desktop/github/javascript-basics/javascript-fundementals-part-4-TDD/caesar/caesar.spec.js:20:41)
+        at <Jasmine>
+Pending:
+
+1) caesar works with large negative shift factors
+  Temporarily disabled with xit
+
+7 specs, 1 failure, 1 pending spec
+Finished in 0.009 seconds
+Randomized with seed 22565 (jasmine --random=true --seed=22565)
