@@ -3,11 +3,12 @@ const caesar = function(string, num) {
  let caesarString = "";
  let mod = num % 26;
 
- for (let i = 0; i < stringArray.length; i++) {
-   let charCode = stringArray[i].charCodeAt(0)
-   if (checkAlphabet(charCode)) {
+  for (let i = 0; i < stringArray.length; i++) {
+    let charCode = stringArray[i].charCodeAt(0)
+    if (checkAlphabet(charCode)) {
      charCode += mod;
-     if (!checkAlphabet(charCode) || (charCode >= 90 && charCode - mod <= 90) || (charCode <= 122 && charCode - mod >= 122)) {
+     if (!checkAlphabet(charCode) || (charCode >= 90 && charCode - mod <= 90) ||
+        (charCode <= 122 && charCode - mod >= 122)) {
        if (num < 0) {
          charCode += 26;
        } else {
