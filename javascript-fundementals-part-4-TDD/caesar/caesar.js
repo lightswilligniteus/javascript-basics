@@ -1,49 +1,27 @@
 const caesar = function(string, num) {
  let stringArray = string.split("");
+ let caesarString = "";
 
 for(i = 0; i < stringArray.length; i++) {
-  let pos = checkPosition(stringArray[i]);
-  if (stringArray[i] != "," || stringArray[i] != " " || stringArray[i] != "!") {
-    if (stringArray[i] == stringArray[i].toUpperCase()) {
-       stringArray[i] = uppercaseAlphabet[getNewPos(pos,num)];
-    } else {
-      stringArray[i] = alphabet[getNewPos(pos,num)];
+      let tempString = String.fromCharCode(getCharCode(stringArray[i], num));
+      caesarString += tempString;
     }
-  }
+ return caesarString;
 }
 
- return convertString(stringArray);
-}
+function getCharCode(character, num) {
+  let specialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  let charCode = character.charCodeAt(0)
+  let newCharCode = charCode + num;
 
-let alphabet = ["a","b","c","d'","e","f","g","h","i","j","k","l","m","n","o",
-  "p","q","r","s","t","u","v","w","x","y","z",];
-let uppercaseAlphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M",
-  "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-
-function convertString(array){
-  let string = "";
-  for(i = 0; i < array.length; i++) {
-    string += array[i];
-  }
-  return string;
-}
-
-function checkPosition(char) {
-  let pos = 0;
-  char = char.toLowerCase();
-  for (; pos < alphabet.length; pos++) {
-    if (char == alphabet[pos]) {
-      return pos;
-    }
-  }
-}
-
-function getNewPos(num, newPos) {
-  if (num + newPos <= 26) {
-    return num + newPos;
+  if(specialCharacter.test(character) || character == " ") {
+    charCode = charCode;
+  } else if ((newCharCode > 97 && newCharCode < 122) || (newCharCode > 65 && newCharCode < 90)) {
+    charCode = charCode + num;
   } else {
-    return num + newPos - 26 - 1;
+    charCode = charCode + num - 26;
   }
+  return charCode;
 }
 
 module.exports = caesar
