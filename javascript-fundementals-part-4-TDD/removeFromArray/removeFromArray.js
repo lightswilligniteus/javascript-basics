@@ -1,21 +1,9 @@
-const removeFromArray = function() {
-  let iterate = arguments.length;
-  let args = [];
-  let array = [];
+const removeFromArray = function(...arguments) {
+  const array = arguments[0];
 
-  for (i = 0; i < iterate; i++) {
-    args[i] = arguments[i];
-  }
-
-  array = args.splice(0,1);
-
-  for (let i = 0; i < array.length; i++) {
-    if (args[i] == array[i]) {
-      array.spice(i, i+1);
-    }//let index = array.indexOf(arguments[i]);
-  }
-  console.log(array);
-  return array;
+  //filter explanation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+  //includes explanation: https://www.w3schools.com/jsref/jsref_includes_array.asp
+  return array.filter(arr => !arguments.includes(arr));
 }
 
 module.exports = removeFromArray
